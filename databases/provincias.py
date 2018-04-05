@@ -1,4 +1,4 @@
-import easygui as eg
+from resources import easygui as eg
 
 provincedict = {"Extranjero": 66, "Alava": 1, "Albacete": 2, "Alicante": 3, "Almeria": 4,
 "Avila": 5, "Badajoz": 6, "Baleares": 7, "Barcelona": 8, "Burgos": 9, "Caceres": 10, "Cadiz": 11,
