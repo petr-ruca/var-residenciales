@@ -26,7 +26,7 @@ for filez in filename:
         idx = 0
         lineList = []
         for i in field_widths:
-            upper = idx+i
+            upper = idx + i
             # sustituye espacios en blanco por 0
             linechecked = line[idx:upper].replace(" ", str(0))
             lineList.append(linechecked)
@@ -35,7 +35,7 @@ for filez in filename:
         outputList.append(lineList)
 
     # Guarda el resultado en un archivo compatible con excel:
-    # para quitar ''.txt' del nombre
+    # quitando el '.txt' del nombre
     savename = filez[:-4]
 
     with open("{0}.csv".format(savename), "w") as f:
