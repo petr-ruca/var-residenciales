@@ -5,8 +5,8 @@ from tkinter.filedialog import askopenfilenames
 
 filename = askopenfilenames(title="Elige los microdatos en .TXT", filetypes=[
                             ('TXT file', '*.txt'), ('All files', '*.*')])
+
 for filez in filename:
-    # data_content = open(filename).read()
     lines = open(filez).readlines()
 
     # Longitud de cada campo de cada microdato
@@ -15,6 +15,13 @@ for filez in filename:
 
     # Crea una lista con los digitos separados:
     outputList = []
+
+    # Añade la cabecera de los datos del INE
+    outputList.append(['SEXO', 'PROVNAC', 'MUNINAC', 'EDAD', 'MESNAC',
+                       'ANONAC', 'CNAC', 'PROVALTA', 'MUNIALTA', 'MESVAR',
+                       'ANOVAR', 'PROVBAJA', 'MUNIBAJA', 'TAMUALTA',
+                       'TAMUBAJA', 'TAMUNACI'])
+
     for line in lines:
         idx = 0
         lineList = []
@@ -29,11 +36,10 @@ for filez in filename:
 
     # Guarda el resultado en un archivo compatible con excel:
     # para quitar ''.txt' del nombre
-
     savename = filez[:-4]
 
     with open("{0}.csv".format(savename), "w") as f:
         writer = csv.writer(f, lineterminator='\n')
         writer.writerows(outputList)
 
-messagebox.showinfo("CARL SAGAN:", "Parece que todo ha ido fenómeno")
+messagebox.showinfo("Python:", "Archivos guardados correctamente")

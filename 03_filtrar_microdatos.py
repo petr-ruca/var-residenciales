@@ -3,12 +3,12 @@
 # así que hay que restar 1 a cada campo)
 # PROVBAJA y MUNIBAJA: campos 12 y 13
 import csv
-#from databases import provincias
+# from databases import provincias
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename, askopenfilenames
 import pandas as pd
 
-#filename = askopenfilenames(title="Elige los microdatos en .CSV para filtrarlos por provincia",filetypes=[('CSV file','*.csv'), ('All files','*.*')])
+# filename = askopenfilenames(title="Elige los microdatos en .CSV para filtrarlos por provincia",filetypes=[('CSV file','*.csv'), ('All files','*.*')])
 filename = '/Volumes/HD/Google Drive/2018 UCO - Variaciones Residenciales/var-residenciales/testfiles/2000.csv'
 
 completo = pd.read_csv(filename)
