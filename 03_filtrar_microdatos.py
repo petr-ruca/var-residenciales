@@ -1,30 +1,43 @@
-# Numero de campo respecto al diseño del fichero de microdatos INE:
-# PROVALTA y MUNIALTA: campos 8 y 9 (python empieza a contar desde 0,
-# así que hay que restar 1 a cada campo)
-# PROVBAJA y MUNIBAJA: campos 12 y 13
-import csv
-# from databases import provincias
-from tkinter import messagebox
-from tkinter.filedialog import askopenfilename, askopenfilenames
 import pandas as pd
+import os
+from resources import easygui as eg
+from databases.provincias import buscar_prov
+from databases.provincias import provincelist
+from databases.provincias import provincedict
+from tkinter.filedialog import askopenfilenames
 
-# filename = askopenfilenames(title="Elige los microdatos en .CSV para filtrarlos por provincia",filetypes=[('CSV file','*.csv'), ('All files','*.*')])
-filename = '/Volumes/HD/Google Drive/2018 UCO - Variaciones Residenciales/var-residenciales/testfiles/2000.csv'
 
-completo = pd.read_csv(filename)
-filtro = completo.PROVALTA == 39
-filtro.head()
-completo[filtro]
+# Abre los archivos de microdatos brutos por año
+filename = askopenfilenames(title="Elige los microdatos en .CSV para filtrarlos por provincia",
+                            filetypes=[('CSV file', '*.csv'), ('All files', '*.*')])
 
-completo.head()
 
-chosenprov = 1
+# Crea una lista con los codigos de las provincias elegidas
+chosenprov = eg.multchoicebox("¿De que provincias?", "Carl Sagan asks:", provincelist)
+chosenprov_codes = []
+for key in chosenprov:
+    if key in provincedict:
+        chosenprov_codes.append(provincedict[key])
+
+# Bucle para cada año, filtra los microdatos por provincias
 for filez in filename:
+    year = filez[-8:-4]
+    microdatos_raw = pd.read_csv(filez)
 
-    # Loop para cada archivo CSV, debería haber uno por año
-    # for filez in filename:
-    #    with open(filez) as csv_file:
-    #        csv_reader = csv.reader(csv_file)
-    #
-    #        for line in csv_reader:
-    #            print(line[2])
+#   Bucle para filtrar todas las provincias seleccionadas
+    for prov in chosenprov_codes:
+        nombreprov = buscar_prov(prov)
+        provpath = nombreprov + '/'
+        microdatos_filtro = microdatos_raw[(microdatos_raw.PROVALTA == prov) |
+                                           (microdatos_raw.PROVBAJA == prov)]
+
+#       Define la ruta del archivo nuevo y el nombre
+        savepath = str(filez[:-8]) + str(provpath) + '/'
+        filename = str(nombreprov) + '_' + str(year) + '.csv'
+
+#       Si el directorio no existe se crea
+        if not os.path.exists(savepath):
+            os.makedirs(savepath)
+
+#       Guarda el archivo filtrado
+        microdatos_filtro.to_csv(savepath + filename, index=False)
