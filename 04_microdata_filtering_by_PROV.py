@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from resources import easygui as eg
-from databases.provincias import buscar_prov
+from resources.funciones import buscar_prov
 from databases.provincias import provincelist
 from databases.provincias import provincedict
 from tkinter.filedialog import askopenfilenames

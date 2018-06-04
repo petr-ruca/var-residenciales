@@ -19,10 +19,3 @@ provincelist = ["Extranjero", "Alava", "Albacete", "Alicante", "Almeria",
                 "Santa Cruz de Tenerife", "Cantabria", "Segovia", "Sevilla", "Soria",
                 "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Bizkaia",
                 "Zamora", "Zaragoza", "Ceuta", "Melilla"]
-
-
-# Con esta función buscamos el nombre de la provincia a partir de su código
-
-
-def buscar_prov(value):
-    return next((k for k, v in provincedict.items() if v == value), None)
