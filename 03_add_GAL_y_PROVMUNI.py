@@ -1,4 +1,5 @@
 import pandas as pd
+from tkinter.filedialog import askopenfilenames
 
 # Abrir archivos necesarios
 filename = askopenfilenames(title="Elige los microdatos en .CSV para añadir los códigos GAL y PROVMUNI",
@@ -7,7 +8,7 @@ filename = askopenfilenames(title="Elige los microdatos en .CSV para añadir los
 mungal = pd.read_csv('databases/mungal.csv', sep=';')
 
 for filez in filename:
-    microdatos = pd.read_csv(filename)
+    microdatos = pd.read_csv(filez)
 
     # Convierte los códigos PROV y MUNI a un único código de 5 dígitos
     microdatos['PROVMUNIALTA'] = microdatos.PROVALTA.astype(
