@@ -44,7 +44,7 @@ test-jupyternotebook: cuaderno jupyter para testear operaciones o para exponer i
 PROGRAMAS QUE USO PARA EDITAR Y PROBAR CÓDIGO
 ----------------------------------------------
 
-Anacondas: python y librerías. https://www.anaconda.com/download/#macos
-Atom: editor de texto. https://atom.io/
-Paquetes Atom: Hydrogen, Autocomplete-python, Linter, Python-autopep8
-Guía para instalar los paquetes atom: https://www.youtube.com/watch?v=DjEuROpsvp4
+- Anacondas: python y librerías. https://www.anaconda.com/download/#macos
+- Atom: editor de texto. https://atom.io/
+- Paquetes Atom: Hydrogen, Autocomplete-python, Linter, Python-autopep8
+- Guía para instalar los paquetes atom: https://www.youtube.com/watch?v=DjEuROpsvp4
