@@ -5,15 +5,16 @@ ESTRUCTURA DE CARPETAS
 /databases: bases de datos no editables que se usan para extraer información.
 	/databases/mungal.csv: relación de nombres y códigos de municipios y grupos de acción local a los que pertenecen.
 	/databases/provincias.py: diccionarios con las provincias y sus respectivos códigos.
+
 /resources: recursos necesarios para que los programas funcionen, como por ejemplo librerías y funciones creadas por nosotros.
 	/resources/easygui.py: librería necesaria para generar ventanas de interacción con el usuario.
 	/resources/funciones.py: funciones creadas para usarlas en los programas.
-/testfiles: archivos de prueba para confirmar que los programas funcionan y archivos creados por los propios programas.
-	/testfiles/2000.txt: muestra muy pequeña de los microdatos que nos manda el INE. 
-		Cada línea representa una persona y cada conjunto de dígitos una determinada información de esa persona (Sexo, año de nacimiento, etc)
-	/testfiles/2000.csv: resultado del programa 01_microdata_to_csv
 
-/*: los archivos en la carpeta raíz son los programas que creamos (.py). Además hay un cuaderno Jupyter para testear y enseñar ideas. 
+/testfiles: archivos de prueba para confirmar que los programas funcionan y archivos creados por los propios programas.
+	/testfiles/2000.txt: muestra muy pequeña de los microdatos que nos manda el INE.
+	/testfiles/2000.csv: resultado del programa '01_microdata_to_csv.py'.
+
+/*: los archivos en la carpeta raíz son los programas que creamos (.py). Además hay un cuaderno Jupyter para testear y enseñar ideas de forma más visual. 
 
 
 NOMENCLATURA DE LOS PROGRAMAS
