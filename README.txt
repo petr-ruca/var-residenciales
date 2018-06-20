@@ -6,15 +6,15 @@ ESTRUCTURA DE CARPETAS
 	/databases/mungal.csv: relación de nombres y códigos de municipios y grupos de acción local a los que pertenecen.
 	/databases/provincias.py: diccionarios con las provincias y sus respectivos códigos.
 
-/resources: recursos necesarios para que los programas funcionen, como por ejemplo librerías y funciones creadas por nosotros.
-	/resources/easygui.py: librería necesaria para generar ventanas de interacción con el usuario.
+/resources: recursos necesarios para que los scripts funcionen, por ej. librerías externas y funciones creadas por nosotros.
+	/resources/easygui.py: librería para generar ventanas de interacción con el usuario.
 	/resources/funciones.py: funciones creadas para usarlas en los programas.
 
 /testfiles: archivos de prueba para confirmar que los programas funcionan y archivos creados por los propios programas.
 	/testfiles/2000.txt: muestra muy pequeña de los microdatos que nos manda el INE.
 	/testfiles/2000.csv: resultado del programa '01_microdata_to_csv.py'.
 
-/*: los archivos en la carpeta raíz son los programas que creamos (.py). Además hay un cuaderno Jupyter para testear y enseñar ideas de forma más visual. 
+/*: los archivos en la carpeta raíz son los scripts que creamos (.py). Además hay un cuaderno Jupyter para testear y enseñar ideas de forma más visual. 
 
 
 NOMENCLATURA DE LOS PROGRAMAS
@@ -22,10 +22,10 @@ NOMENCLATURA DE LOS PROGRAMAS
 
 XX_nombre.py:
 			XX: número en base a la jerarquía de uso.
-			nombre: breve descripción acerca de la función de ese programa. Los espacios se sustituyen por '_' para facilitar el llamamiento de programas dentro de otros programas.
+			nombre: breve descripción acerca de la función de ese script. Los espacios se sustituyen por '_' para facilitar el llamamiento de scripts dentro de otros scripts.
 
 
-PROGRAMAS
+SCRIPTS
 ----------
 
 01_microdata_to_csv: convierte los microdatos que nos manda el INE (.TXT), a un formato que facilita su gestión en python (.CSV).
@@ -44,7 +44,7 @@ test-jupyternotebook: cuaderno jupyter para testear operaciones o para exponer i
 PROGRAMAS QUE USO PARA EDITAR Y PROBAR CÓDIGO
 ----------------------------------------------
 
-- Anacondas: python y librerías. https://www.anaconda.com/download/#macos
+- Anacondas: incluye Python, Jupyter y varias librerías (pandas entre ellas). https://www.anaconda.com/download/#macos
 - Atom: editor de texto. https://atom.io/
 - Paquetes Atom: Hydrogen, Autocomplete-python, Linter, Python-autopep8
 - Guía para instalar los paquetes atom: https://www.youtube.com/watch?v=DjEuROpsvp4
