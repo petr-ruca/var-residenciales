@@ -39,3 +39,12 @@ PROGRAMAS
 **05_results: archivo en desarrollo para obtención de resultados y operaciones.
 
 test-jupyternotebook: cuaderno jupyter para testear operaciones o para exponer ideas de forma más visual.
+
+
+PROGRAMAS QUE USO PARA EDITAR Y PROBAR CÓDIGO
+----------------------------------------------
+
+Anacondas: python y librerías. https://www.anaconda.com/download/#macos
+Atom: editor de texto. https://atom.io/
+Paquetes Atom: Hydrogen, Autocomplete-python, Linter, Python-autopep8
+Guía para instalar los paquetes atom: https://www.youtube.com/watch?v=DjEuROpsvp4
