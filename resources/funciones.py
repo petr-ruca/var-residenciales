@@ -95,14 +95,14 @@ def get_saldo_jubilados(municipio, df):
 
 # Calcular el saldo de variación residencial de hombres extranjeros para un municipio
 def get_saldo_extranjeros_hombres(municipio, df):
-    entradas = df.SEXO[(df.PROVMUNIALTA == municipio) & (df.SEXO == 1)].count()
-    salidas_hombres = df.SEXO[(df.PROVMUNIBAJA == municipio) & (df.SEXO == 1)].count()
+    entradas = df.SEXO[(df.PROVMUNIALTA == 66) & (df.SEXO == 1)].count()
+    salidas_hombres = df.SEXO[(df.PROVMUNIBAJA == 66) & (df.SEXO == 1)].count()
     saldo = entradas - salidas
     return saldo
 
 # Calcular el saldo de variación residencial de mujeres extranjeras para un municipio
 def get_saldo_extranjeros_mujeres(municipio, df):
-    entradas = df.SEXO[(df.PROVMUNIALTA == municipio) & (df.SEXO == 1)].count()
-    salidas_hombres = df.SEXO[(df.PROVMUNIBAJA == municipio) & (df.SEXO == 1)].count()
+    entradas = df.SEXO[(df.PROVMUNIALTA == 66) & (df.SEXO == 1)].count()
+    salidas_hombres = df.SEXO[(df.PROVMUNIBAJA == 66) & (df.SEXO == 1)].count()
     saldo = entradas - salidas
     return saldo
