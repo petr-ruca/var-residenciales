@@ -11,14 +11,16 @@ def buscar_prov(value):
     from databases.provincias import provincedict
     return next((k for k, v in provincedict.items() if v == value), None)
 
-# Calcular el saldo de variación residencial para un municipio
-def get_saldo(municipio, df):
+#---------------------------
+
+# VR total del municipio
+def get_saldo_total(municipio, df):
     entradas = df.PROVMUNIALTA[df.PROVMUNIALTA == municipio].count()
     salidas = df.PROVMUNIBAJA[df.PROVMUNIBAJA == municipio].count()
     saldo = entradas - salidas
     return saldo
 
-# Calcular el saldo de variación residencial por sexos
+# VR total por género
 def get_saldo_hombres(municipio, df):
     entradas_hombres = df.SEXO[(df.PROVMUNIALTA == municipio) & (df.SEXO == 1)].count()
     salidas_hombres = df.SEXO[(df.PROVMUNIBAJA == municipio) & (df.SEXO == 1)].count()
@@ -30,12 +32,19 @@ def get_saldo_mujeres(municipio, df):
     saldo_mujeres = entradas_mujeres - salidas_mujeres
     return saldo_mujeres
 
-# Calcular el saldo de variación residencial por tramos de edad
+# VR de extranjeros total
+def get_saldo_extranjeros(municipio, df):
+    entradas_ext = df.PROVMUNIALTA[(df.PROVMUNIALTA == municipio) & (df.PROVMUNIBAJA == 66)].count()
+    salidas_ext = df.PROVMUNIBAJA[(df.PROVMUNIBAJA == municipio) & (df.PROVMUNIALTA == 66)].count()
+    saldo_ext = entradas_ext - salidas_ext
+    return saldo_ext
+
+# VR total por tramos de edad
 def get_saldo_menores(municipio, df):
     age_menores_high = 15
 
-    entradas_menores = df.EDAD[(df.PROVMUNIALTA == municipio) & (df.EDAD <= age_m)].count()
-    salidas_menores = df.EDAD[(df.PROVMUNIBAJA == municipio) & (df.EDAD <= age_m)].count()
+    entradas_menores = df.EDAD[(df.PROVMUNIALTA == municipio) & (df.EDAD <= age_menores_high)].count()
+    salidas_menores = df.EDAD[(df.PROVMUNIBAJA == municipio) & (df.EDAD <= age_menores_high)].count()
     saldo_menores = entradas_menores - salidas_menores
     
     return saldo_menores
@@ -83,6 +92,9 @@ def get_saldo_jubilados(municipio, df):
     saldo_jubilados = entradas_jubilados - salidas_jubilados
     
     return saldo_jubilados
+
+#-----------
+
 
 # Calcular el saldo de variación residencial de hombres extranjeros para un municipio
 def get_saldo_extranjeros_hombres(municipio, df):
