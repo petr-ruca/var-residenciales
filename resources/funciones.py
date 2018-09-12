@@ -6,7 +6,6 @@ def buscar_muni(value):
     munidict = mungal.set_index('MUNICIPIO').to_dict()['CODIGO_MUNICIPIO']
     return next((k for k, v in munidict.items() if v == value), None)
 
-
 # Con esta función buscamos el nombre de la provincia a partir de su código
 def buscar_prov(value):
     from databases.provincias import provincedict
@@ -25,13 +24,11 @@ def get_saldo_hombres(municipio, df):
     salidas_hombres = df.SEXO[(df.PROVMUNIBAJA == municipio) & (df.SEXO == 1)].count()
     saldo_hombres = entradas_hombres - salidas_hombres
     return saldo_hombres
-
 def get_saldo_mujeres(municipio, df):
     entradas_mujeres = df.SEXO[(df.PROVMUNIALTA == municipio) & (df.SEXO == 6)].count()
     salidas_mujeres = df.SEXO[(df.PROVMUNIBAJA == municipio) & (df.SEXO == 6)].count()
     saldo_mujeres = entradas_mujeres - salidas_mujeres
     return saldo_mujeres
-
 
 # Calcular el saldo de variación residencial por tramos de edad
 def get_saldo_menores(municipio, df):
@@ -42,7 +39,6 @@ def get_saldo_menores(municipio, df):
     saldo_menores = entradas_menores - salidas_menores
     
     return saldo_menores
-
 def get_saldo_estudiantes(municipio, df):
     age_estudiantes_low = 16
     age_estudiantes_high = 24
@@ -52,7 +48,6 @@ def get_saldo_estudiantes(municipio, df):
     saldo_estudiantes = entradas_estudiantes - salidas_estudiantes
     
     return saldo_estudiantes
-
 def get_saldo_trabajadores(municipio, df):
     age_trabajadores_low = 25
     age_trabajadores_high = 35
@@ -62,7 +57,6 @@ def get_saldo_trabajadores(municipio, df):
     saldo_trabajadores = entradas_trabajadores - salidas_trabajadores
     
     return saldo_trabajadores
-
 def get_saldo_madurez1(municipio, df):
     age_madurez1_low = 36
     age_madurez1_high = 49
@@ -72,7 +66,6 @@ def get_saldo_madurez1(municipio, df):
     saldo_madurez1 = entradas_madurez1 - salidas_madurez1
     
     return saldo_madurez1
-
 def get_saldo_madurez2(municipio, df):
     age_madurez2_low = 50
     age_madurez2_high = 64
@@ -82,7 +75,6 @@ def get_saldo_madurez2(municipio, df):
     saldo_madurez2 = entradas_madurez2 - salidas_madurez2
 
     return saldo_madurez2
-
 def get_saldo_jubilados(municipio, df):
     age_jubilados_low = 65
 
@@ -91,7 +83,6 @@ def get_saldo_jubilados(municipio, df):
     saldo_jubilados = entradas_jubilados - salidas_jubilados
     
     return saldo_jubilados
-
 
 # Calcular el saldo de variación residencial de hombres extranjeros para un municipio
 def get_saldo_extranjeros_hombres(municipio, df):
