@@ -39,6 +39,9 @@ def get_saldo_extranjeros(municipio, df):
     saldo_ext = entradas_ext - salidas_ext
     return saldo_ext
 
+# VR de entranjeros por género
+
+
 # VR total por tramos de edad
 def get_saldo_menores(municipio, df):
     age_menores_high = 15
@@ -92,6 +95,17 @@ def get_saldo_jubilados(municipio, df):
     saldo_jubilados = entradas_jubilados - salidas_jubilados
     
     return saldo_jubilados
+
+# VR de hombres por tramos de edad
+
+# VR de mujeres por tramos de edad
+
+# VR total de extranjeros por tramos de edad
+
+# VR de hombres extranjeros por tramos de edad
+
+# VR de mujeres extranjeras por tramos de edad
+
 
 #-----------
 
