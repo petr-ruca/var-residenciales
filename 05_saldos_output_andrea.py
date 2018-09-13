@@ -1,5 +1,5 @@
 import pandas as pd
-import resources.funciones
+from resources import funciones
 from tkinter.filedialog import askopenfilenames
 
 
