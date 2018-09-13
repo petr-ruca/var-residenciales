@@ -40,7 +40,11 @@ def get_saldo_extranjeros(municipio, df):
     return saldo_ext
 
 # VR de entranjeros por género
-
+def get_saldo_extranjeroshombres(municipio, df):
+    entradas_ext_hombres = df.PROVMUNIALTA[(df.PROVMUNIALTA == municipio) & (df.PROVMUNIBAJA == 66) & (df.SEXO == 1)].count()
+    salidas_ext_hombres = df.PROVMUNIBAJA[(df.PROVMUNIBAJA == municipio) & (df.PROVMUNIALTA == 66) & (df.SEXO == 1)].count()
+    saldo_ext_hombres = entradas_ext - salidas_ext
+    return saldo_ext_hombres
 
 # VR total por tramos de edad
 def get_saldo_menores(municipio, df):
