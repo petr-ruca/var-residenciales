@@ -1,9 +1,5 @@
 import pandas as pd
-from resources.funciones import buscar_muni
-from resources.funciones import buscar_prov
-from resources.funciones import get_saldo_total
-from resources.funciones import get_saldo_hombres
-from resources.funciones import get_saldo_mujeres
+import resources.funciones
 from tkinter.filedialog import askopenfilenames
 
 
