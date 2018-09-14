@@ -62,4 +62,4 @@ for filez in filename:
     munidatabase[year + '_SALDOEXT_MUJERES_MADUREZ2'] = munidatabase['COD_PROVMUNI'].apply(get_saldo_madurez2_ext_m, df=microdatos)
     munidatabase[year + '_SALDOEXT_MUJERES_JUBILADOS'] = munidatabase['COD_PROVMUNI'].apply(get_saldo_jubilados_ext_m, df=microdatos)
 
-munidatabase.to_csv('outputs/variacionesresidencialesAndrea.csv', index=False)
+    munidatabase.to_csv('outputs/' + year + '_VR_database.csv', index=False)
