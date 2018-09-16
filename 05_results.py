@@ -4,11 +4,13 @@ from tkinter.filedialog import askopenfilenames
 munidatabase = pd.read_csv('databases/municipios.csv', sep=';')
 result = munidatabase
 filename = askopenfilenames(title= "Elige todos los microdatos en .CSV", filetypes=[('CSV file', '*.csv'), ('All files', '*.*')])
+count = 0
 
 for filez in filename:
     microdatos = pd.read_csv(filez)
     year = filez[-8:-4]
-    
+    count = count + 1
+
     # Saldo VR TOTAL
     ent = microdatos.groupby('PROVMUNIALTA').size()
     sal = microdatos.groupby('PROVMUNIBAJA').size()
@@ -111,10 +113,9 @@ for filez in filename:
 
     result = pd.merge(result, saldo, on='COD_PROVMUNI')
 
-    print('Guardada la base de datos del año ' + year + '!!')
+    print(count)
 
 result.COD_PROVMUNI = result.COD_PROVMUNI.astype(str).str.zfill(5)
 
-result.to_csv('outputs/' + year + '_VR_database.csv', index=False)
-f'Guardada la base de datos del {year}!!'
+result.to_csv('outputs/VR_database.csv', index=False)
 print('FINALIZADO')
