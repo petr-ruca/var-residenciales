@@ -112,12 +112,14 @@ for filez in filename:
     saldo = saldo.reset_index().rename(columns={'index': 'COD_PROVMUNI', 'PROVMUNIALTA': 'COD_PROVMUNI'})
 
     result = result.merge(saldo, how='left', on='COD_PROVMUNI')
-    tabla = result.shape
+    
+    filas = int(result.shape[0])
+    columnas = int(result.shape[1])
 
-    print(count)
-    print(tabla)
+    print("Completado " + str(count) + " con tabla " + str(filas) + "x" + str(columnas))
 
 result.COD_PROVMUNI = result.COD_PROVMUNI.astype(str).str.zfill(5)
+result.loc[:, result.dtypes == 'float64'] = result.loc[:, result.dtypes == 'float64'].fillna(value=0).astype('int64')
 
 result.to_csv('outputs/VR_database.csv', index=False)
 print('FINALIZADO')
